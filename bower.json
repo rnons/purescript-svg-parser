@@ -1,0 +1,27 @@
+{
+  "name": "purescript-svg-parser",
+  "description": "A library to parse string to SVG",
+  "keywords": [
+    "purescript",
+    "svg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rnons/purescript-svg-parser.git"
+  },
+  "license": "BSD-3-Clause",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^4.0.0",
+    "purescript-string-parsers": "^5.0.0",
+    "purescript-generics-rep": "^6.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^4.0.0"
+  }
+}
