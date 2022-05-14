@@ -20,9 +20,9 @@ import Data.Show.Generic (genericShow)
 import Data.List (List)
 import Data.List as List
 import Data.String.CodeUnits (fromCharArray)
-import Text.Parsing.StringParser (Parser, ParseError, runParser, try)
-import Text.Parsing.StringParser.Combinators (lookAhead, many, manyTill, option, sepEndBy)
-import Text.Parsing.StringParser.CodeUnits (anyChar, regex, skipSpaces, string, whiteSpace)
+import StringParser (Parser, ParseError, runParser, try)
+import StringParser.Combinators (lookAhead, many, manyTill, option, sepEndBy)
+import StringParser.CodeUnits (anyChar, regex, skipSpaces, string, whiteSpace)
 
 
 -- | A SVG node can be one of the three: SvgElement, SvgText or SvgComment.
@@ -121,11 +121,6 @@ nodeParser = defer \_ ->
   try commentParser <|>
   elementParser
 
-xmlDeclarationParser :: Parser String
-xmlDeclarationParser = do
-  skipSpaces
-  decl <- string "<?xml" *> manyTill anyChar (string "?>")
-  pure $ charListToString decl
 
 beforeSvgParser :: Parser String
 beforeSvgParser = do
